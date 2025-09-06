@@ -1,0 +1,126 @@
+---
+import Favicon from "../components/heart.astro";
+
+const images = [
+  "/imgs/1.jpg",
+  "/imgs/2.jpg",
+  "/imgs/3.jpg",
+  "/imgs/4.jpg",
+  "/imgs/5.jpg",
+  "/imgs/6.jpg",
+  "/imgs/7.jpg",
+  "/imgs/8.jpg",
+];
+---
+
+<main class="flex justify-center min-w-full min-h-screen py-5">
+  <div class="bg-gray-200 w-6xl max-w-6xl rounded-2xl shadow-2xl">
+    <div class="text-center">
+      <h1
+        class="text-5xl font-extrabold py-9 bg-gradient-to-r from-pink-500 to-blue-600 bg-clip-text text-transparent inline-block"
+      >
+        Santi y Mel ❤️
+      </h1>
+    </div>
+
+    <div class="px-4 mb-4">
+      <div
+        class="relative w-full md:w-xl h-80 md:h-120 mx-auto rounded-2xl overflow-hidden"
+      >
+        <div class="relative w-full h-full">
+          {
+            images.map((src, i) => (
+              <img
+                src={src}
+                alt={`slide ${i}`}
+                class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+                style={`animation: fade ${images.length * 3}s infinite; animation-delay: ${i * 4}s`}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center items-center flex-col">
+      <h2 class="text-center text-pink-500 text-2xl font-bold">
+        <Favicon class="size-9 text-blue-600" />Juntos por: <Favicon
+          class="size-9 text-pink-500"
+        />
+      </h2>
+
+      <div class="text-center text-2xl font-semibold mt-4 text-blue-600">
+        <span id="time-counter">Cargando...</span>
+      </div>
+    </div>
+
+    <p class="p-4 font-normal text-pretty md:px-20">
+      Desde que estas conmigo todo va un poco mejor cada día, lo que haces
+      impacta mucho en lo que soy hoy en día, me gusta mucho saber que eres mi
+      compañía y que cuento contigo para esos momentos difíciles en donde todo
+      parece tornarse un poco oscuro, te agradezco enormemente cada esfuerzo que
+      haces por mi, lo buena que eres conmigo, agradezco mucho al cielo haberte
+      conocido, dicen que cuando las cosas son para uno ni aunque te quites, soy
+      muy fiel creyente de que todas las cosas que llegan a tu vida siempre son
+      para dejar algo en ti, y eso justamente experimente contigo, Te amo
+      demasiado, gracias por hacer de mi una mejor persona cada día, tanto para
+      ti, como para el resto del mundo, recuerda que eres valiosa y fuerte,
+      además un poco safada, pero sobre todo, una guerrera que merece todo lo
+      mejor de este mundo ❤️.
+    </p>
+  </div>
+</main>
+
+<style>
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const startDate = new Date("2022-03-24");
+  const counter = document.getElementById("time-counter");
+
+  function calculateTime(start: Date) {
+    const now = new Date();
+
+    let years = now.getFullYear() - start.getFullYear();
+    let months = now.getMonth() - start.getMonth();
+    let days = now.getDate() - start.getDate();
+
+    if (days < 0) {
+      months -= 1;
+      const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+      days += prevMonth.getDate();
+    }
+
+    if (months < 0) {
+      years -= 1;
+      months += 12;
+    }
+
+    return { years, months, days };
+  }
+
+  function updateCounter() {
+    const { years, months, days } = calculateTime(startDate);
+    counter!.textContent = `${years} años, ${months} meses, ${days} días`;
+  }
+
+  updateCounter(); // inicial
+  setInterval(updateCounter, 1000 * 60 * 60); // actualiza cada hora
+</script>
