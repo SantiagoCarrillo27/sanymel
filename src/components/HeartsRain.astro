@@ -1,5 +1,5 @@
 ---
-const heartsCount = 30; // cuantos corazones quieres
+const heartsCount = 20; // cuantos corazones quieres
 const hearts = Array.from({ length: heartsCount });
 ---
 
@@ -7,8 +7,8 @@ const hearts = Array.from({ length: heartsCount });
   {hearts.map((_, i) => (
     <div
       class="heart"
-      style={`--x: ${Math.random() * 100}vw; --size: ${1 + Math.random() * 1.5}rem; --duration: ${4 + Math.random() * 4}s; --delay: ${Math.random() * 5}s;`}
-    >❤️</div>
+      style={`--x: ${Math.random() * 100}vw; --size: ${1 + Math.random() * 1.5}rem; --duration: ${6 + Math.random() * 4}s; --delay: ${Math.random() * 5}s;`}
+    >💝</div>
   ))}
 </div>
 
