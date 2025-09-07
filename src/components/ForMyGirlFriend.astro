@@ -1,5 +1,6 @@
 ---
 import Favicon from "../components/heart.astro";
+import HeartsRain from "./HeartsRain.astro";
 
 const images = [
   "/imgs/1.jpg",
@@ -13,6 +14,7 @@ const images = [
 ];
 ---
 
+<HeartsRain/>
 <main class="flex justify-center min-w-full min-h-screen py-5">
   <div class="bg-gray-200 w-6xl max-w-6xl rounded-2xl shadow-2xl">
     <div class="text-center">
@@ -57,9 +59,9 @@ const images = [
     <div class="p-4 font-normal text-pretty md:px-20 text-gray-700">
       <p>
         Desde que estás conmigo, todo va un poco mejor cada día. Lo que haces
-        impacta mucho en lo que soy hoy, y me gusta mucho saber que eres
-        mi compañía, que cuento contigo para esos momentos difíciles en donde
-        todo parece tornarse un poco oscuro.
+        impacta mucho en lo que soy hoy, y me gusta mucho saber que eres mi
+        compañía, que cuento contigo para esos momentos difíciles en donde todo
+        parece tornarse un poco oscuro.
       </p>
       <p>
         Te agradezco enormemente cada esfuerzo que haces por mí, lo buena que
@@ -71,16 +73,14 @@ const images = [
       <p>
         <strong>Te amo demasiado 😻.</strong> Gracias por hacer de mí una mejor persona
         cada día, tanto para ti como para el resto del mundo. Recuerda que eres valiosa
-        y fuerte, y aunque un poquito safada 😂, eres sobre todo una guerrera que merece
-        todo lo mejor de este mundo ❤️.
+        y fuerte, y aunque un poquito safada 😂, eres sobre todo una guerrera que
+        merece todo lo mejor de este mundo ❤️.
       </p>
     </div>
 
-
     <div class="py-6 text-center text-4xl md:text-7xl text-pink-500">
-      <h2>Feliz Aniversario mi preciosa ❤️</h2>
+      <h2 class="font-extrabold">Feliz Aniversario mi preciosa ❤️</h2>
     </div>
-
   </div>
 </main>
 
@@ -135,5 +135,6 @@ const images = [
   }
 
   updateCounter();
-  setInterval(updateCounter, 1000 * 60 * 60); 
+  setInterval(updateCounter, 1000 * 60 * 60);
+  
 </script>
